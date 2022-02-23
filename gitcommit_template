@@ -1,0 +1,14 @@
+[HEADER-TYPE]:
+[DESCRIPTION]:
+[MODULE]:
+[BRANCH]:
+
+[Note]:
+ · feat: 新功能
+ · fix: 修复bug
+ · docs: 只有文档改变
+ · style: 并没有影响代码的意义(空格，去掉分号，格式的修改等)
+ · refactor: 代码的修改并没有修改bug，也没有添加新功能
+ · perf: 代码的修改提高的性能
+ · test: 添加测试
+ · chore: 构建过程或构建工具的改变(并没有生产环境代码的改变)

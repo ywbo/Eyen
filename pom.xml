@@ -8,11 +8,11 @@
         <version>2.6.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.miwi</groupId>
-    <artifactId>MiWi</artifactId>
+    <groupId>com.eyen</groupId>
+    <artifactId>eyen</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>MiWi</name>
-    <description>MiWi</description>
+    <name>eyen</name>
+    <description>eyen</description>
     <properties>
         <java.version>11</java.version>
         <repackage.classifier/>

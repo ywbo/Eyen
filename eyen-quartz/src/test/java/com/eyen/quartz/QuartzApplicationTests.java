@@ -1,10 +1,10 @@
-package com.eyen.admin;
+package com.eyen.quartz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class eyenAdminApplicationTests {
+class QuartzApplicationTests {
 
     @Test
     void contextLoads() {

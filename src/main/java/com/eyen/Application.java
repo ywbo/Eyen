@@ -1,13 +1,13 @@
-package com.eyen.quartz;
+package com.eyen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class eyenQuartzApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(eyenQuartzApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

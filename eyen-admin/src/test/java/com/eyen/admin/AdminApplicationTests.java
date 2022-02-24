@@ -1,10 +1,10 @@
-package com.eyen.system;
+package com.eyen.admin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class eyenSystemApplicationTests {
+class AdminApplicationTests {
 
     @Test
     void contextLoads() {

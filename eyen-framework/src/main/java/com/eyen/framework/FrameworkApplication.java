@@ -1,13 +1,13 @@
-package com.eyen.admin;
+package com.eyen.framework;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class eyenAdminApplication {
+public class FrameworkApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(eyenAdminApplication.class, args);
+        SpringApplication.run(FrameworkApplication.class, args);
     }
 
 }

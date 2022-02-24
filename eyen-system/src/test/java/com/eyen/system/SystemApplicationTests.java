@@ -1,10 +1,10 @@
-package com.eyen.common;
+package com.eyen.system;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class eyenCommonApplicationTests {
+class SystemApplicationTests {
 
     @Test
     void contextLoads() {

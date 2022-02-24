@@ -1,13 +1,13 @@
-package com.eyen;
+package com.eyen.shiro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class eyenApplication {
+public class ShiroApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(eyenApplication.class, args);
+        SpringApplication.run(ShiroApplication.class, args);
     }
 
 }

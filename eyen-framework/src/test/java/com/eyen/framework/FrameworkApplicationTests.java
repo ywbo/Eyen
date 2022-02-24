@@ -1,10 +1,10 @@
-package com.eyen.shiro;
+package com.eyen.framework;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class eyenShiroApplicationTests {
+class FrameworkApplicationTests {
 
     @Test
     void contextLoads() {

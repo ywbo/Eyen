@@ -1,13 +1,14 @@
-package com.eyen.generator;
+package com.eyen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class eyenGeneratorApplication {
+public class AdminApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(eyenGeneratorApplication.class, args);
+        SpringApplication.run(AdminApplication.class, args);
     }
 
 }
+

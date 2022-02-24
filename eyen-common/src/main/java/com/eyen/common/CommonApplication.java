@@ -1,13 +1,13 @@
-package com.eyen.system;
+package com.eyen.common;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class eyenSystemApplication {
+public class CommonApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(eyenSystemApplication.class, args);
+        SpringApplication.run(CommonApplication.class, args);
     }
 
 }

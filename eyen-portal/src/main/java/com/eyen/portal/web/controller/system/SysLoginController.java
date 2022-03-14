@@ -1,22 +1,22 @@
 package com.eyen.portal.web.controller.system;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
+import com.eyen.common.convert.ConvertType;
+import com.eyen.common.core.base.BaseController;
+import com.eyen.common.utils.ServletUtils;
+import com.eyen.framework.web.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.eyen.common.core.base.BaseController;
-
-import cn.hutool.core.convert.Convert;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
- * @description 首页登录验证
- *
  * @author yuwenbo
+ * @description 首页登录验证
  * @date 2022/02/28 22:21
  **/
 @Controller
@@ -28,7 +28,7 @@ public class SysLoginController extends BaseController {
     private boolean rememberMe;
 
     @Autowired
-    private ConfigServer configServer;
+    private ConfigService configService;
 
     @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
@@ -39,7 +39,7 @@ public class SysLoginController extends BaseController {
         // 是否开启记住我
         modelMap.put("isRememberMe", rememberMe);
         // 是否开启新用户注册
-        modelMap.put("isAllowRegister", Convert.toBool(configServer.getKey("sys.account.registerUser"), false));
+        modelMap.put("isAllowRegister", ConvertType.toBool(configService.getKey("sys.account.registerUser"), false));
         return "login";
     }
 

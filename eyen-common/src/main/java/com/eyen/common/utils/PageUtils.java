@@ -9,9 +9,9 @@ import com.github.pagehelper.PageHelper;
  * 分页工具类
  *
  * @author yuwenbo
- * @date 2022/03/01 21:41
+ * @date 2022/03/14 22:42
  **/
-public class PageUtil extends PageHelper {
+public class PageUtils {
     /**
      * 设置请求分页数据
      */

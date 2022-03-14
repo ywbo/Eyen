@@ -4,20 +4,35 @@ import com.eyen.common.core.domain.AjaxResult;
 import com.eyen.common.core.domain.ResuTree;
 import com.eyen.common.core.domain.ResultTable;
 import com.eyen.common.core.domain.entity.SysUser;
+import com.eyen.common.core.page.PageDomain;
+import com.eyen.common.core.page.TableDataInfo;
+import com.eyen.common.core.page.TableSupport;
+import com.eyen.common.utils.PageUtils;
 import com.eyen.common.utils.ServletUtils;
+import com.eyen.common.utils.ShiroUtils;
 import com.eyen.common.utils.StringUtils;
+import com.eyen.common.utils.sql.SqlUtil;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * @author yuwenbo
  * @description web层通用数据处理
  * @date 2022/02/28 22:26
  **/
-public class BaseController implements BaseApi {
+public class BaseController {
     /**
      * 日志
      */
@@ -150,7 +165,7 @@ public class BaseController implements BaseApi {
      * 页面跳转
      */
     public String redirect(String url) {
-        return StrUtil.format("redirect:{}", url);
+        return StringUtils.format("redirect:{}", url);
     }
 
     /**

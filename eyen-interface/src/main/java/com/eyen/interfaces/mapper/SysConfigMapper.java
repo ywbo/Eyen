@@ -10,7 +10,7 @@ import java.util.List;
  * @author yuwenbo
  * @date 2022/03/13 22:06
  **/
-public class SysConfigMapper {
+public interface SysConfigMapper {
     /**
      * 查询参数配置信息
      *

@@ -15,8 +15,8 @@ eyen:
 
 # 开发环境配置
 server:
-  # 服务器的HTTP端口，默认为80
-  port: 80
+  # 服务器的HTTP端口，默认为8090
+  port: 8090
   servlet:
     # 应用的访问路径
     context-path: /
@@ -51,10 +51,6 @@ spring:
     encoding: utf-8
     # 禁用缓存
     cache: false
-  # 资源信息
-  messages:
-    # 国际化资源文件路径
-    basename: static/i18n/messages
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss

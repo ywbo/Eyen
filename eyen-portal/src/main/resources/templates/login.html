@@ -46,7 +46,7 @@
             let loader = layer.load();
             $(".login").html("<i class='layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-icon-loading' />");
             $.ajax({
-                url: rootPath + '/admin/login',
+                url: rootPath + '/login',
                 data: data.field,
                 type: "post",
                 dataType: 'json',

@@ -35,7 +35,7 @@ public class SysLoginController extends BaseController {
     @Value("true")
     private boolean rememberMe;
 
-    @Autowired
+    @Autowired(required = false)
     private ConfigService configService;
 
     @GetMapping("/login")

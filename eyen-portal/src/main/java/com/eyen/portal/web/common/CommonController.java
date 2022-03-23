@@ -34,7 +34,7 @@ import java.util.List;
 public class CommonController {
     private static final Logger log = LoggerFactory.getLogger(CommonController.class);
 
-    @Autowired
+    @Autowired(required = false)
     private ServerConfig serverConfig;
 
     private static final String FILE_DELIMETER = ",";

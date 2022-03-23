@@ -1,5 +1,18 @@
 package com.eyen.portal.web.core.config;
 
+import com.eyen.common.config.EyenGlobalConfig;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+
 /**
  * Swagger2 的接口配置
  *
@@ -46,9 +59,9 @@ public class SwaggerConfig {
                 // 描述
                 .description("描述：用于管理集团旗下公司的人员信息,具体包括XXX,XXX模块...")
                 // 作者信息
-                .contact(new Contact(RuoYiConfig.getName(), null, null))
+                .contact(new Contact(EyenGlobalConfig.getName(), null, null))
                 // 版本
-                .version("版本号:" + RuoYiConfig.getVersion())
+                .version("版本号:" + EyenGlobalConfig.getVersion())
                 .build();
     }
 }

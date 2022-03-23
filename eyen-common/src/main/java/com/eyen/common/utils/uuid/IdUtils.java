@@ -1,6 +1,5 @@
 package com.eyen.common.utils.uuid;
 
-import java.util.UUID;
 
 /**
  * Id 生成器工具类

@@ -1,6 +1,13 @@
 package com.eyen.common.utils.file;
 
+import com.eyen.common.config.EyenGlobalConfig;
+import com.eyen.common.constant.Constants;
+import com.eyen.common.exception.file.FileNameLengthLimitExceededException;
+import com.eyen.common.exception.file.FileSizeLimitExceededException;
+import com.eyen.common.exception.file.InvalidExtensionException;
+import com.eyen.common.utils.DateUtils;
 import com.eyen.common.utils.StringUtils;
+import com.eyen.common.utils.uuid.Seq;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,7 +36,7 @@ public class FileUploadUtils {
     /**
      * 默认上传的地址
      */
-    private static String defaultBaseDir = RuoYiConfig.getProfile();
+    private static String defaultBaseDir = EyenGlobalConfig.getProfile();
 
     public static void setDefaultBaseDir(String defaultBaseDir) {
         FileUploadUtils.defaultBaseDir = defaultBaseDir;
@@ -119,7 +126,7 @@ public class FileUploadUtils {
     }
 
     public static final String getPathFileName(String uploadDir, String fileName) throws IOException {
-        int dirLastIndex = RuoYiConfig.getProfile().length() + 1;
+        int dirLastIndex = EyenGlobalConfig.getProfile().length() + 1;
         String currentDir = StringUtils.substring(uploadDir, dirLastIndex);
         return Constants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
     }

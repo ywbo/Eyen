@@ -1,4 +1,4 @@
-package com.eyen.portal.web.common;
+package com.eyen.web.common;
 
 import com.eyen.common.config.EyenGlobalConfig;
 import com.eyen.common.config.ServerConfig;

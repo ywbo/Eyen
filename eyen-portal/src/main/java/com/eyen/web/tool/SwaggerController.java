@@ -1,4 +1,4 @@
-package com.eyen.portal.web.tool;
+package com.eyen.web.tool;
 
 import com.eyen.common.core.base.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -7,19 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * build 表单构建
+ * swagger 接口
  *
  * @author yuwenbo
- * @date 2022/03/22 23:13
+ * @date 2022/03/22 23:15
  **/
 @Controller
-@RequestMapping("/tool/build")
-public class BuildController extends BaseController {
-    private String prefix = "tool/build";
-
-    @RequiresPermissions("tool:build:view")
+@RequestMapping("/tool/swagger")
+public class SwaggerController extends BaseController {
+    @RequiresPermissions("tool:swagger:view")
     @GetMapping()
-    public String build() {
-        return prefix + "/build";
+    public String index() {
+        return redirect("/swagger-ui/index.html");
     }
 }

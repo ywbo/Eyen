@@ -1,4 +1,4 @@
-package com.eyen.portal.web.controller.system;
+package com.eyen.web.controller.system;
 
 
 import com.eyen.common.convert.ConvertType;
@@ -23,8 +23,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * 首页登录验证
+ *
  * @author yuwenbo
- * @description 首页登录验证
  * @date 2022/02/28 22:21
  **/
 @Controller
@@ -32,10 +33,10 @@ public class SysLoginController extends BaseController {
     /**
      * 是否开启记住我功能
      */
-    @Value("true")
+    @Value("${shiro.rememberMe.enabled: false}")
     private boolean rememberMe;
 
-    @Autowired(required = false)
+    @Autowired
     private ConfigService configService;
 
     @GetMapping("/login")

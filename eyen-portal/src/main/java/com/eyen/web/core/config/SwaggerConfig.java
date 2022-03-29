@@ -1,4 +1,4 @@
-package com.eyen.portal.web.core.config;
+package com.eyen.web.core.config;
 
 import com.eyen.common.config.EyenGlobalConfig;
 import io.swagger.annotations.ApiOperation;

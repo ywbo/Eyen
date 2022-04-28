@@ -1,6 +1,7 @@
 package com.eyen.interfaces.mapper;
 
 import com.eyen.interfaces.entity.SysConfig;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author yuwenbo
  * @date 2022/03/13 22:06
  **/
+@Repository
 public interface SysConfigMapper {
     /**
      * 查询参数配置信息

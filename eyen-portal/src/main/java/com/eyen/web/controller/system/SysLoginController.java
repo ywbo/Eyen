@@ -36,7 +36,7 @@ public class SysLoginController extends BaseController {
     @Value("${shiro.rememberMe.enabled: false}")
     private boolean rememberMe;
 
-    @Autowired(required = false)
+    @Autowired
     private ConfigService configService;
 
     @GetMapping("/login")

@@ -1,4 +1,4 @@
-package com.eyen.web.controller.system;
+package com.eyen.portal.controller.system;
 
 
 import com.eyen.common.convert.ConvertType;
@@ -6,7 +6,7 @@ import com.eyen.common.core.base.BaseController;
 import com.eyen.common.core.domain.AjaxResult;
 import com.eyen.common.utils.ServletUtils;
 import com.eyen.common.utils.StringUtils;
-import com.eyen.framework.web.service.ConfigService;
+import com.eyen.portal.service.ISysConfigService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -37,7 +37,7 @@ public class SysLoginController extends BaseController {
     private boolean rememberMe;
 
     @Autowired
-    private ConfigService configService;
+    private ISysConfigService sysConfigService;
 
     @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
@@ -48,7 +48,7 @@ public class SysLoginController extends BaseController {
         // 是否开启记住我
         modelMap.put("isRememberMe", rememberMe);
         // 是否开启新用户注册
-        modelMap.put("isAllowRegister", ConvertType.toBool(configService.getKey("sys.account.registerUser"), false));
+        modelMap.put("isAllowRegister", ConvertType.toBool(sysConfigService.selectConfigByKey("sys.account.registerUser"), false));
         return "login";
     }
 

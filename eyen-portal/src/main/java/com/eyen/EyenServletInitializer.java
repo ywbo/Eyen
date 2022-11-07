@@ -4,7 +4,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- * web 容器中部署
+ * portal 容器中部署
  *
  * @author yuwenbo
  * @date 2022/04/24 22:33

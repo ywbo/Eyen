@@ -1,4 +1,4 @@
-package com.eyen.interfaces.service;
+package com.eyen.portal.service;
 
 import com.eyen.interfaces.entity.SysConfig;
 

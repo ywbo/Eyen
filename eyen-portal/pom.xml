@@ -49,12 +49,6 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <!-- 核心模块 -->
-        <dependency>
-            <groupId>com.eyen</groupId>
-            <artifactId>eyen-framework</artifactId>
-        </dependency>
-
         <!-- 代码生成 -->
         <dependency>
             <groupId>com.eyen</groupId>
@@ -97,6 +91,16 @@
             </plugin>
         </plugins>
         <finalName>${project.artifactId}</finalName>
+        <resources>
+            <!--编译后对xml进行资源拷贝-->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>

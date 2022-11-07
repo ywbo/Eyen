@@ -1,4 +1,4 @@
-package com.eyen.interfaces.service.impl;
+package com.eyen.portal.service.impl;
 
 import com.eyen.common.constant.Constants;
 import com.eyen.common.constant.UserConstants;
@@ -7,8 +7,8 @@ import com.eyen.common.exception.ServiceException;
 import com.eyen.common.utils.CacheUtils;
 import com.eyen.common.utils.StringUtils;
 import com.eyen.interfaces.entity.SysConfig;
-import com.eyen.interfaces.mapper.SysConfigMapper;
-import com.eyen.interfaces.service.ISysConfigService;
+import com.eyen.portal.dao.SysConfigDao;
+import com.eyen.portal.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,7 @@ import java.util.List;
 public class SysConfigServiceImpl implements ISysConfigService {
 
     @Autowired
-    private SysConfigMapper configMapper;
+    private SysConfigDao configMapper;
 
     /**
      * 项目启动时，初始化参数到缓存

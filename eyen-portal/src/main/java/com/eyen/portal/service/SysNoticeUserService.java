@@ -1,11 +1,9 @@
 package com.eyen.portal.service;
 
-import com.eyen.portal.dao.auto.SysNoticeUserDao;
 import com.eyen.portal.model.auto.sysnotice.SysNoticeUser;
 import com.eyen.portal.model.auto.sysnotice.SysNoticeUserItem;
-import com.github.pagehelper.PageHelper;
+import com.eyen.portal.model.custom.TablePost;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -16,94 +14,37 @@ import java.util.List;
  * @date 2022/11/7 23:07
  */
 
-public interface SysNoticeUserService implements BaseService<SysNoticeUser, SysNoticeUserItem> {
-    @Autowired
-    private SysNoticeUserDao sysNoticeUserDao;
+public interface SysNoticeUserService {
 
     /**
      * 分页查询
      *
-     * @param pageNum
-     * @param pageSize
+     * @param tablepar
+     * @param name
      * @return
      */
-    public PageInfo<SysNoticeUser> list(Tablepar tablepar, String name) {
-        SysNoticeUserItem testExample = new SysNoticeUserItem();
-        testExample.setOrderByClause("id ASC");
-        if (name != null && !"".equals(name)) {
-            testExample.createCriteria().andUserIdLike("%" + name + "%");
-        }
+    PageInfo<SysNoticeUser> list(TablePost tablepar, String name);
 
-        PageHelper.startPage(tablepar.getPage(), tablepar.getLimit());
-        List<SysNoticeUser> list = sysNoticeUserDao.selectByExample(testExample);
-        PageInfo<SysNoticeUser> pageInfo = new PageInfo<SysNoticeUser>(list);
-        return pageInfo;
-    }
+    int deleteByPrimaryKey(String ids);
+    
+    SysNoticeUser selectByPrimaryKey(String id);
 
-    @Override
-    public int deleteByPrimaryKey(String ids) {
-        List<String> lista = ConvertUtil.toListStrArray(ids);
-        SysNoticeUserItem example = new SysNoticeUserItem();
-        example.createCriteria().andIdIn(lista);
-        return sysNoticeUserDao.deleteByExample(example);
-    }
-
-
-    @Override
-    public SysNoticeUser selectByPrimaryKey(String id) {
-
-        return sysNoticeUserDao.selectByPrimaryKey(id);
-    }
-
-
-    @Override
-    public int updateByPrimaryKeySelective(SysNoticeUser record) {
-        return sysNoticeUserDao.updateByPrimaryKeySelective(record);
-    }
+    int updateByPrimaryKeySelective(SysNoticeUser record);
 
     /**
      * 添加
      */
-    @Override
-    public int insertSelective(SysNoticeUser record) {
-        //添加雪花主键id
-        record.setId(SnowflakeIdWorker.getUUID());
-        return sysNoticeUserDao.insertSelective(record);
-    }
+    int insertSelective(SysNoticeUser record);
 
+    int updateByExampleSelective(SysNoticeUser record, SysNoticeUserItem example);
 
-    @Override
-    public int updateByExampleSelective(SysNoticeUser record, SysNoticeUserItem example) {
+    int updateByExample(SysNoticeUser record, SysNoticeUserItem example);
 
-        return sysNoticeUserDao.updateByExampleSelective(record, example);
-    }
+    List<SysNoticeUser> selectByExample(SysNoticeUserItem example);
 
+    long countByExample(SysNoticeUserItem example);
 
-    @Override
-    public int updateByExample(SysNoticeUser record, SysNoticeUserItem example) {
-
-        return sysNoticeUserDao.updateByExample(record, example);
-    }
-
-    @Override
-    public List<SysNoticeUser> selectByExample(SysNoticeUserItem example) {
-
-        return sysNoticeUserDao.selectByExample(example);
-    }
-
-
-    @Override
-    public long countByExample(SysNoticeUserItem example) {
-
-        return sysNoticeUserDao.countByExample(example);
-    }
-
-
-    @Override
-    public int deleteByExample(SysNoticeUserItem example) {
-
-        return sysNoticeUserDao.deleteByExample(example);
-    }
+    int deleteByExample(SysNoticeUserItem example);
 
     /**
      * 检查name
@@ -111,11 +52,6 @@ public interface SysNoticeUserService implements BaseService<SysNoticeUser, SysN
      * @param sysNoticeUser
      * @return
      */
-    public int checkNameUnique(SysNoticeUser sysNoticeUser) {
-        SysNoticeUserItem example = new SysNoticeUserItem();
-        example.createCriteria().andUserIdEqualTo(sysNoticeUser.getUserId());
-        List<SysNoticeUser> list = sysNoticeUserDao.selectByExample(example);
-        return list.size();
-    }
+    public int checkNameUnique(SysNoticeUser sysNoticeUser);
 
 }

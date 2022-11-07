@@ -1,15 +1,18 @@
 package com.eyen.portal.service.impl;
 
 import com.eyen.common.core.base.BaseService;
+import com.eyen.common.utils.ConvertUtil;
+import com.eyen.common.utils.SnowflakeIdWorker;
 import com.eyen.portal.dao.auto.SysNoticeUserDao;
 import com.eyen.portal.model.auto.sysnotice.SysNoticeUser;
 import com.eyen.portal.model.auto.sysnotice.SysNoticeUserItem;
 import com.eyen.portal.model.custom.TablePost;
+import com.eyen.portal.service.SysNoticeUserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,17 +22,18 @@ import java.util.List;
  * @date 2022/11/7 23:34
  **/
 @Service
-public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysNoticeUserItem> {
-    @Autowired
+public class SysNoticeUserServiceImpl implements SysNoticeUserService, BaseService<SysNoticeUser, SysNoticeUserItem> {
+    @Resource
     private SysNoticeUserDao sysNoticeUserDao;
 
     /**
      * 分页查询
      *
-     * @param pageNum
-     * @param pageSize
+     * @param tablepar
+     * @param name
      * @return
      */
+    @Override
     public PageInfo<SysNoticeUser> list(TablePost tablepar, String name) {
         SysNoticeUserItem testExample = new SysNoticeUserItem();
 
@@ -46,9 +50,9 @@ public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysN
 
     @Override
     public int deleteByPrimaryKey(String ids) {
-        List<String> lista = ConvertUtil.toListStrArray(ids);
+        List<String> lists = ConvertUtil.toListStrArray(ids);
         SysNoticeUserItem example = new SysNoticeUserItem();
-        example.createCriteria().andIdIn(lista);
+        example.createCriteria().andIdIn(lists);
         return sysNoticeUserDao.deleteByExample(example);
     }
 
@@ -115,6 +119,7 @@ public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysN
      * @param sysNoticeUser
      * @return
      */
+    @Override
     public int checkNameUnique(SysNoticeUser sysNoticeUser) {
         SysNoticeUserItem example = new SysNoticeUserItem();
         example.createCriteria().andUserIdEqualTo(sysNoticeUser.getUserId());

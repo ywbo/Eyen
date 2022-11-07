@@ -191,13 +191,6 @@
                 <version>${eyen.version}</version>
             </dependency>
 
-            <!-- 核心模块-->
-            <dependency>
-                <groupId>com.eyen</groupId>
-                <artifactId>eyen-framework</artifactId>
-                <version>${eyen.version}</version>
-            </dependency>
-
             <!-- 系统模块-->
             <dependency>
                 <groupId>com.eyen</groupId>
@@ -217,7 +210,6 @@
     <!-- 模块 -->
     <modules>
         <module>eyen-common</module>
-        <module>eyen-framework</module>
         <module>eyen-generator</module>
         <module>eyen-interface</module>
         <module>eyen-quartz</module>

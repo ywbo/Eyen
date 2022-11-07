@@ -1,8 +1,10 @@
 package com.eyen.portal.service.impl;
 
+import com.eyen.common.core.base.BaseService;
 import com.eyen.portal.dao.auto.SysNoticeUserDao;
 import com.eyen.portal.model.auto.sysnotice.SysNoticeUser;
 import com.eyen.portal.model.auto.sysnotice.SysNoticeUserItem;
+import com.eyen.portal.model.custom.TablePost;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +15,8 @@ import java.util.List;
 /**
  * 公告_用户外键 SysNoticeUserService
  *
- * @author fuce_自动生成
- * @Title: SysNoticeUserService.java
- * @Package com.fc.v2.service
- * @email 115889198@qq.com
- * @date 2019-09-08 02:12:54
+ * @author yuwenbo
+ * @date 2022/11/7 23:34
  **/
 @Service
 public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysNoticeUserItem> {
@@ -31,8 +30,8 @@ public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysN
      * @param pageSize
      * @return
      */
-    public PageInfo<SysNoticeUser> list(Tablepar tablepar, String name) {
-        SysNoticeUserExample testExample = new SysNoticeUserExample();
+    public PageInfo<SysNoticeUser> list(TablePost tablepar, String name) {
+        SysNoticeUserItem testExample = new SysNoticeUserItem();
 
         testExample.setOrderByClause("id ASC");
         if (name != null && !"".equals(name)) {
@@ -40,7 +39,7 @@ public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysN
         }
 
         PageHelper.startPage(tablepar.getPage(), tablepar.getLimit());
-        List<SysNoticeUser> list = sysNoticeUserMapper.selectByExample(testExample);
+        List<SysNoticeUser> list = sysNoticeUserDao.selectByExample(testExample);
         PageInfo<SysNoticeUser> pageInfo = new PageInfo<SysNoticeUser>(list);
         return pageInfo;
     }
@@ -48,22 +47,22 @@ public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysN
     @Override
     public int deleteByPrimaryKey(String ids) {
         List<String> lista = ConvertUtil.toListStrArray(ids);
-        SysNoticeUserExample example = new SysNoticeUserExample();
+        SysNoticeUserItem example = new SysNoticeUserItem();
         example.createCriteria().andIdIn(lista);
-        return sysNoticeUserMapper.deleteByExample(example);
+        return sysNoticeUserDao.deleteByExample(example);
     }
 
 
     @Override
     public SysNoticeUser selectByPrimaryKey(String id) {
 
-        return sysNoticeUserMapper.selectByPrimaryKey(id);
+        return sysNoticeUserDao.selectByPrimaryKey(id);
     }
 
 
     @Override
     public int updateByPrimaryKeySelective(SysNoticeUser record) {
-        return sysNoticeUserMapper.updateByPrimaryKeySelective(record);
+        return sysNoticeUserDao.updateByPrimaryKeySelective(record);
     }
 
     /**
@@ -73,41 +72,41 @@ public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysN
     public int insertSelective(SysNoticeUser record) {
         //添加雪花主键id
         record.setId(SnowflakeIdWorker.getUUID());
-        return sysNoticeUserMapper.insertSelective(record);
+        return sysNoticeUserDao.insertSelective(record);
     }
 
 
     @Override
-    public int updateByExampleSelective(SysNoticeUser record, SysNoticeUserExample example) {
+    public int updateByExampleSelective(SysNoticeUser record, SysNoticeUserItem example) {
 
-        return sysNoticeUserMapper.updateByExampleSelective(record, example);
+        return sysNoticeUserDao.updateByExampleSelective(record, example);
     }
 
 
     @Override
-    public int updateByExample(SysNoticeUser record, SysNoticeUserExample example) {
+    public int updateByExample(SysNoticeUser record, SysNoticeUserItem example) {
 
-        return sysNoticeUserMapper.updateByExample(record, example);
+        return sysNoticeUserDao.updateByExample(record, example);
     }
 
     @Override
-    public List<SysNoticeUser> selectByExample(SysNoticeUserExample example) {
+    public List<SysNoticeUser> selectByExample(SysNoticeUserItem example) {
 
-        return sysNoticeUserMapper.selectByExample(example);
-    }
-
-
-    @Override
-    public long countByExample(SysNoticeUserExample example) {
-
-        return sysNoticeUserMapper.countByExample(example);
+        return sysNoticeUserDao.selectByExample(example);
     }
 
 
     @Override
-    public int deleteByExample(SysNoticeUserExample example) {
+    public long countByExample(SysNoticeUserItem example) {
 
-        return sysNoticeUserMapper.deleteByExample(example);
+        return sysNoticeUserDao.countByExample(example);
+    }
+
+
+    @Override
+    public int deleteByExample(SysNoticeUserItem example) {
+
+        return sysNoticeUserDao.deleteByExample(example);
     }
 
     /**
@@ -117,9 +116,9 @@ public class SysNoticeUserServiceImpl implements BaseService<SysNoticeUser, SysN
      * @return
      */
     public int checkNameUnique(SysNoticeUser sysNoticeUser) {
-        SysNoticeUserExample example = new SysNoticeUserExample();
+        SysNoticeUserItem example = new SysNoticeUserItem();
         example.createCriteria().andUserIdEqualTo(sysNoticeUser.getUserId());
-        List<SysNoticeUser> list = sysNoticeUserMapper.selectByExample(example);
+        List<SysNoticeUser> list = sysNoticeUserDao.selectByExample(example);
         return list.size();
     }
 

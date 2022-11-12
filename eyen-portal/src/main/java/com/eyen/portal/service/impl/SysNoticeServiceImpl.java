@@ -1,6 +1,8 @@
 package com.eyen.portal.service.impl;
 
 import com.eyen.common.core.base.BaseService;
+import com.eyen.portal.model.auto.sysnotice.SysNotice;
+import com.eyen.portal.model.auto.sysnotice.SysNoticeExample;
 import com.eyen.portal.model.custom.TablePost;
 import com.eyen.portal.service.SysNoticeService;
 import com.github.pagehelper.PageInfo;

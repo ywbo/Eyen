@@ -1,7 +1,10 @@
 package com.eyen.portal.service.impl;
 
+import com.eyen.common.utils.ConvertUtil;
+import com.eyen.common.utils.SnowflakeIdWorker;
+import com.eyen.portal.model.auto.sysnotice.TsysUser;
+import com.eyen.portal.model.custom.TablePost;
 import com.fc.v2.common.base.BaseService;
-import com.fc.v2.common.support.ConvertUtil;
 import com.fc.v2.mapper.auto.TSysRoleUserMapper;
 import com.fc.v2.mapper.auto.TsysRoleMapper;
 import com.fc.v2.mapper.auto.TsysUserMapper;
@@ -9,9 +12,7 @@ import com.fc.v2.mapper.custom.RoleDao;
 import com.fc.v2.mapper.custom.TsysUserDao;
 import com.fc.v2.model.auto.*;
 import com.fc.v2.model.custom.RoleVo;
-import com.fc.v2.model.custom.Tablepar;
 import com.fc.v2.util.MD5Util;
-import com.fc.v2.util.SnowflakeIdWorker;
 import com.fc.v2.util.StringUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -58,7 +59,7 @@ public class SysUserServiceImpl implements BaseService<TsysUser, TsysUserExample
      * @param pageSize
      * @return
      */
-    public PageInfo<TsysUser> list(Tablepar tablepar) {
+    public PageInfo<TsysUser> list(TablePost tablepar) {
         PageHelper.startPage(tablepar.getPage(), tablepar.getLimit());
         List<TsysUser> list = userDao.queryUserInfo(tablepar.getSearchText());
         PageInfo<TsysUser> pageInfo = new PageInfo<TsysUser>(list);

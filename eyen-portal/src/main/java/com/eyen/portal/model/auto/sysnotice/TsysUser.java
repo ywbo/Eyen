@@ -110,8 +110,7 @@ public class TsysUser implements Serializable {
     public void setDepId(Integer depId) {
         this.depId = depId;
     }
-
-
+    
     public String getPosId() {
         return posId;
     }
